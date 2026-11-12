@@ -5,6 +5,8 @@ async function main() {
   const publicClient = await viem.getPublicClient();
   const [walletClient] = await viem.getWalletClients();
   const address = walletClient.account.address;
+  const balance = await publicClient.getBalance({ address });
+  console.log(balance);
   console.log("Wallet address:", address);
 }
 

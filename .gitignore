@@ -21,6 +21,10 @@
 .env.*
 !.env.example
 
+# Markdown notes & logs
+*.md
+
+
 # Hardhat coverage reports
 /coverage
 
