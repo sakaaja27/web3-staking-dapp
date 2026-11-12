@@ -1,57 +1,49 @@
-# Sample Hardhat 3 Project (`node:test` and `viem`)
+# Web3 Staking dApp — Panduan Penggunaan & Deploy
 
-This project showcases a Hardhat 3 project using the native Node.js test runner (`node:test`) and the `viem` library for Ethereum interactions.
+Proyek dApp staking sederhana menggunakan Hardhat v3 (Viem), Solidity, OpenZeppelin, Next.js, Wagmi, dan RainbowKit.
 
-To learn more about Hardhat 3, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3](https://hardhat.org/hardhat3-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+---
 
-## Project Overview
+## 1. Menjalankan Smart Contract Secara Lokal (Hardhat)
 
-This example project includes:
+1. **Compile kontrak**:
+   ```bash
+   npx hardhat compile
+   ```
+2. **Jalankan test suite**:
+   ```bash
+   npx hardhat test
+   ```
+3. **Deploy kontrak ke local network (Ignition)**:
+   ```bash
+   npx hardhat ignition deploy ignition/modules/Staking.ts
+   ```
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using [`node:test`](https://nodejs.org/api/test.html), the new Node.js native test runner, and [`viem`](https://viem.sh/).
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+---
 
-## Usage
+## 2. Menjalankan Frontend dApp
 
-### Running Tests
+1. Masuk ke folder frontend:
+   ```bash
+   cd frontend
+   ```
+2. Jalankan development server:
+   ```bash
+   npm run dev
+   ```
+3. Buka [http://localhost:3000](http://localhost:3000) di browser, hubungkan wallet Anda menggunakan RainbowKit, dan mulai lakukan Stake, Unstake, serta Claim Reward.
 
-To run all the tests in the project, execute the following command:
+---
 
-```shell
-npx hardhat test
-```
+## 3. Deploy ke Testnet (Sepolia)
 
-You can also selectively run the Solidity or `node:test` tests:
-
-```shell
-npx hardhat test solidity
-npx hardhat test nodejs
-```
-
-### Make a deployment to Sepolia
-
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
-
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
-```
-
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
-```
-
-After setting the variable, you can run the deployment with the Sepolia network:
-
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+1. Pastikan Keystore Hardhat terisi RPC URL dan Private Key:
+   ```bash
+   npx hardhat keystore set SEPOLIA_RPC_URL
+   npx hardhat keystore set SEPOLIA_PRIVATE_KEY
+   ```
+2. Deploy kontrak ke jaringan Sepolia:
+   ```bash
+   npx hardhat ignition deploy ignition/modules/Staking.ts --network sepolia
+   ```
+3. Update contract address di file `frontend/app/page.tsx` sesuai hasil deploy Sepolia.

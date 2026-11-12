@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  variable: "--font-jakarta",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-instrument",
 });
 
 export const metadata: Metadata = {
-  title: "Web3 Staking dApp",
-  description: "Stake tokens and earn rewards",
+  title: "BrmDapp — Stake Tokens & Earn Real Rewards",
+  description:
+    "Stake STK tokens on Sepolia testnet and earn rewards over time — simple, transparent, fully on-chain.",
 };
 
 export default function RootLayout({
@@ -24,8 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100">
+    <html
+      lang="en"
+      className={`${jakartaSans.variable} ${instrumentSerif.variable} scroll-smooth h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col bg-[#0b0c0f] text-slate-100 font-sans overflow-x-hidden selection:bg-teal-400 selection:text-black">
         <Providers>{children}</Providers>
       </body>
     </html>
