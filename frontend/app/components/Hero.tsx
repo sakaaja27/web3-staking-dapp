@@ -5,11 +5,7 @@ export function Hero() {
   return (
     <main id="home" className="relative z-10 pt-10 sm:pt-14 pb-12 flex-1 flex flex-col justify-between">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full text-center relative">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-ping" />
-          <span className="text-xs font-medium text-zinc-300">🔒 Testnet Live — Start Staking</span>
-        </div>
-
+      
         <div className="relative max-w-4xl mx-auto">
           <div className="hidden lg:flex items-center gap-2 absolute -left-12 top-6 animate-float-slow">
             <div className="bg-teal-500/20 backdrop-blur-md border border-teal-400/40 text-teal-300 text-[11px] font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
@@ -33,7 +29,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="max-w-xl mx-auto text-sm sm:text-base text-zinc-400 leading-relaxed">
-            Stake STK tokens on Sepolia testnet and earn rewards over time —
+            Stake STK tokens on Sepolia testnet and earn rewards over time and
             simple, transparent, fully on-chain.
           </p>
         </div>
